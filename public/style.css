@@ -181,7 +181,10 @@ body {
 .post .topo img,
 .post .fundo img,
 .post ion-icon,
-.post strong {
+.post strong,
+.usuario ion-icon,
+.usuario > img,
+.conteudo > img {
   cursor: pointer;
 }
 
@@ -398,4 +401,12 @@ body {
     position: relative;
     top: 4px;
   }
+}
+
+ion-icon {
+  visibility: visible;
+}
+
+.usuario ion-icon {
+  margin-left: 5px;
 }

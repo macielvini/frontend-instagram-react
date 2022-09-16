@@ -5,6 +5,7 @@ export default function Usuario() {
       <div class="texto">
         <strong>catanacomics</strong>
         Catana
+        <ion-icon name="pencil"></ion-icon>
       </div>
     </div>
   )
