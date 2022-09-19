@@ -25,7 +25,7 @@ export default function Usuario() {
   function editarImagem() {
     let pImage = prompt("Link para sua foto de perfil:");
 
-    if (pImage === "") {
+    if (!pImage) {
       pImage = defaultProfileIcon;
     }
 
@@ -34,8 +34,11 @@ export default function Usuario() {
 
   return (
     <div class="usuario">
-      <div>
-        <img src={image} alt="" onClick={editarImagem} />
+      <div class="imagem-usuario">
+        <img src={image} alt="" />
+        <div id="editar-imagem">
+          <ion-icon onClick={editarImagem} name="pencil"></ion-icon>
+        </div>
       </div>
       <div class="texto">
         <div>
