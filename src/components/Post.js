@@ -1,4 +1,14 @@
+import React from "react"
+
 export default function Post(props = "") {
+
+  const [icon, setIcon] = React.useState("bookmark-outline");
+
+  function salvarPost() {
+    if (icon === "bookmark-outline") setIcon("bookmark");
+    if (icon === "bookmark") setIcon("bookmark-outline");
+  }
+
   return (
     <div class="post">
       <div class="topo">
@@ -23,7 +33,7 @@ export default function Post(props = "") {
             <ion-icon name="paper-plane-outline"></ion-icon>
           </div>
           <div>
-            <ion-icon name="bookmark-outline"></ion-icon>
+            <ion-icon name={icon} onClick={salvarPost}></ion-icon>
           </div>
         </div>
 
