@@ -239,10 +239,40 @@ body {
 
 .sidebar > .usuario .texto {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   margin-left: 14px;
   font-weight: 300;
   color: #8e8e8e;
+
+  width: 100%;
+}
+
+.sidebar > .usuario .texto ion-icon {
+  font-size: 20px;
+}
+
+.sidebar > .usuario .pencil-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid #dbdbdb;
+
+  height: 30px;
+  width: 30px;
+  border-radius: 8px;
+
+  transition: all 200ms ease;
+}
+
+.sidebar > .usuario .pencil-icon:hover {
+  color: white;
+  background-color: #dbdbdb;
+}
+
+.sidebar > .usuario .texto > div {
+  display: flex;
+  flex-direction: column;
 }
 
 .sidebar > .usuario .texto strong {
