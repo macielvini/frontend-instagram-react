@@ -157,6 +157,10 @@ body {
   margin-top: 18px;
 }
 
+.post ion-icon[name="heart"] {
+  color: tomato;
+}
+
 .post .topo {
   display: flex;
   justify-content: space-between;

@@ -1,12 +1,23 @@
+import react from "react";
 import React from "react"
 
 export default function Post(props = "") {
 
-  const [icon, setIcon] = React.useState("bookmark-outline");
+  const [bookmark, setBookmarkIcon] = React.useState("bookmark-outline");
+  const [heartIcon, setHeartIcon] = React.useState("heart-outline")
 
   function salvarPost() {
-    if (icon === "bookmark-outline") setIcon("bookmark");
-    if (icon === "bookmark") setIcon("bookmark-outline");
+    if (bookmark === "bookmark-outline") setBookmarkIcon("bookmark");
+    if (bookmark === "bookmark") setBookmarkIcon("bookmark-outline");
+  }
+
+  function curtirPost() {
+    setHeartIcon("heart")
+  }
+
+  function botaoCurtir() {
+    if (heartIcon === "heart-outline") setHeartIcon("heart");
+    if (heartIcon === "heart") setHeartIcon("heart-outline");
   }
 
   return (
@@ -21,19 +32,19 @@ export default function Post(props = "") {
         </div>
       </div>
 
-      <div class="conteudo">
+      <div class="conteudo" onClick={curtirPost}>
         <img src={props.postImagem} alt={props.alt} />
       </div>
 
       <div class="fundo">
         <div class="acoes">
           <div>
-            <ion-icon name="heart-outline"></ion-icon>
+            <ion-icon name={heartIcon} onClick={botaoCurtir}></ion-icon>
             <ion-icon name="chatbubble-outline"></ion-icon>
             <ion-icon name="paper-plane-outline"></ion-icon>
           </div>
           <div>
-            <ion-icon name={icon} onClick={salvarPost}></ion-icon>
+            <ion-icon name={bookmark} onClick={salvarPost}></ion-icon>
           </div>
         </div>
 
