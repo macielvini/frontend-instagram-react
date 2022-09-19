@@ -1,7 +1,8 @@
-import react from "react";
 import React from "react"
 
 export default function Post(props = "") {
+
+  const [totalCurtidas, setTotalCurtidas] = React.useState(props.quantidadeCurtidas);
 
   const [bookmark, setBookmarkIcon] = React.useState("bookmark-outline");
   const [heartIcon, setHeartIcon] = React.useState("heart-outline")
@@ -12,12 +13,20 @@ export default function Post(props = "") {
   }
 
   function curtirPost() {
-    setHeartIcon("heart")
+    setHeartIcon("heart");
+    if (heartIcon !== "heart") setTotalCurtidas(totalCurtidas + 1);
   }
 
   function botaoCurtir() {
-    if (heartIcon === "heart-outline") setHeartIcon("heart");
-    if (heartIcon === "heart") setHeartIcon("heart-outline");
+    if (heartIcon === "heart-outline") {
+      setHeartIcon("heart")
+      setTotalCurtidas(totalCurtidas + 1);
+    }
+
+    if (heartIcon === "heart") {
+      setHeartIcon("heart-outline");
+      setTotalCurtidas(totalCurtidas - 1);
+    }
   }
 
   return (
@@ -51,7 +60,7 @@ export default function Post(props = "") {
         <div class="curtidas">
           <img src={props.imagemCurtidor} alt={props.alt} />
           <div class="texto">
-            Curtido por <strong>{props.nomeCurtidor}</strong> e <strong>outras {props.quantidadeCurtidas} pessoas</strong>
+            Curtido por <strong>{props.nomeCurtidor}</strong> e <strong>outras {totalCurtidas} pessoas</strong>
           </div>
         </div>
       </div>
